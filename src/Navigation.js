@@ -7,7 +7,7 @@ import { StyleSheet } from "react-native";
 //Screens
 import HomeStack from "./screens/HomeStack";
 import SettingScreens from "./screens/SettingScreens";
-import StackScreen from "./screens/StackScreen";
+
 
 //Iconos
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -16,9 +16,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const HomeStackNa = createNativeStackNavigator();
 function MyStack() {
     return (
-        <HomeStackNa.Navigator
-            initialRouteName="StackScreen"
-        >
+        <HomeStackNa.Navigator >
             <HomeStackNa  .Screen
                 name='HomeStack'
                 component={HomeStack}
@@ -26,14 +24,7 @@ function MyStack() {
                     headerShown: false
                 }}
             />
-            <HomeStackNa.Screen
-                name='Stack'
-                component={StackScreen}
-                options={{
-                    headerShown: false
-                    
-                }}
-            />
+
         </HomeStackNa.Navigator>
     )
 }
