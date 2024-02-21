@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation} from "@react-navigation/native";
 
 
@@ -8,7 +8,7 @@ const StackScreen = () => {
     const back = useNavigation();
 
     return (
-        <View>
+        <View style = {styles.fondo} >
             <Text
                 style={{
                     fontSize: 30,
@@ -40,5 +40,14 @@ const StackScreen = () => {
 
     )
 }
+
+const styles = StyleSheet.create({
+
+    fondo : {
+        backgroundColor : "#9CD2D3",
+        flex : 1
+    }
+
+})
 
 export default StackScreen
