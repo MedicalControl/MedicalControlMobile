@@ -7,13 +7,11 @@ export function Button_find() {
     return (
 
         <TouchableOpacity
-            onPress={() => Navigation.navigate("Stack")}
+            onPress={() => Navigation.navigate("Account")}
             style={styles.Button}
         >
             <Text style={styles.Text} >Acceder </Text>
         </TouchableOpacity>
-
-
     )
 }
 const styles = StyleSheet.create({
@@ -25,12 +23,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 50,
     },
-
     Text: {
         fontSize: 30,
         color: "#F2E6CF",
         fontWeight: 'bold',
-
     }
-
 })

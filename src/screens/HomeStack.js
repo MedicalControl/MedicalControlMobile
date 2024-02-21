@@ -4,10 +4,12 @@ const { width, height } = Dimensions.get('window')
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { Button_find } from "../componentes/ButtonAc";
+import { Button_Setting } from "../componentes/Button_2";
+import { Button_CreateC } from "../componentes/ButtonCreatC";
 const Home = () => {
-    
     return (
         <View style={styles.Container}>
+            <View></View>
             <Text style={styles.title}>Medical Control</Text>
             <TextInput
                 placeholder="Correo Electrónico"
@@ -16,18 +18,18 @@ const Home = () => {
             <TextInput
                 placeholder="Contraseña"
                 style={styles.textInput}
-                secureTextEntry =  {true}
-
+                secureTextEntry={true}
             />
-            <Text style={styles.fortogPassword}>Olvidaste la Contraseña?</Text>
-            <Button_find/>
-            <Text>No tengo una cuenta</Text>
-
+            <Button_find />
+            <Button_Setting />
+            <Text
+                style={styles.textCuenta}
+            >No tienes ningúna cuenta?</Text>
+            <Button_CreateC/>
             <StatusBar style="auto" />
         </View>
     )
 }
-
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
@@ -46,16 +48,13 @@ const styles = StyleSheet.create({
         width: "60%",
         padding: 12,
         height: 50,
-        marginTop: 20,
+        marginTop: 40,
         paddingStart: 15
     },
-    fortogPassword: {
-        fontSize: 14,
-        color: "gray",
-        marginTop: 20
-
+    textCuenta: {
+        marginTop: 20,
+        right: 45,
     }
-
 })
 
 export default Home

@@ -15,7 +15,7 @@ const AccountScreen = () => {
                     textAlign: 'center',
                     marginTop: "20%"
                 }}
-            >Stack Screen</Text>
+            >AccountScreen Screen</Text>
             <TouchableOpacity
                 onPress={() => back.goBack()}
                 style={{
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default StackScreen
+export default AccountScreen
