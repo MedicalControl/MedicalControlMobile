@@ -1,10 +1,14 @@
 import React, { useEffect } from "react";
-import { View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { useNavigation } from "@react-navigation/native";
 
+//Nuevo componente
 import Input from "../componentes/Inputs";
+
+//Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
 import { Button_find } from "../componentes/ButtonAc";
 import { Button_Setting } from "../componentes/Button_2";
 import { Button_CreateC } from "../componentes/ButtonCreatC";
@@ -12,20 +16,19 @@ import { Button_CreateC } from "../componentes/ButtonCreatC";
 const Home = () => {
 
     const { control, handleSubmit, setValue } = useForm();
+    const Navigation = useNavigation();
     useEffect(() => {
-        Data();
-    })
-
-    const Data = async () => {
-        await AsyncStorage.getItem('Token')
+        AsyncStorage.getItem('Token')
             .then((value) => {
                 if (!value) {
-                    console.log('Si hay credenciales')
+                    Navigation.navigate('Setting')
                 }
-                else
-                    console.log('No hay credenciales')
             })
             .catch((err) => console.error(err))
+    });
+
+    const Data = async () => {
+        
     }
 
     const Onsubmit = (data) => {
