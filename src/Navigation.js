@@ -7,7 +7,7 @@ import { StyleSheet } from "react-native";
 //Screens
 import HomeStack from "./screens/HomeStack";
 import SettingScreens from "./screens/SettingScreens";
-import AccountScreen from "./screens/accountScreen";
+import AccountScreen from "./screens/AccountScreen";
 import Create from "./screens/CreatScreens";
 
 

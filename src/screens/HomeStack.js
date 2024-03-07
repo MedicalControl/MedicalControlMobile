@@ -1,31 +1,64 @@
-import React from "react";
-import { View, Text, TouchableOpacity, TextInput, StyleSheet, DimensionValue, Dimensions, Button } from "react-native";
-const { width, height } = Dimensions.get('window')
-import { useNavigation } from "@react-navigation/native";
+import React, { useEffect } from "react";
+import { View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useForm, SubmitHandler } from 'react-hook-form'
+
+import Input from "../componentes/Inputs";
 import { Button_find } from "../componentes/ButtonAc";
 import { Button_Setting } from "../componentes/Button_2";
 import { Button_CreateC } from "../componentes/ButtonCreatC";
+
 const Home = () => {
+
+    const { control, handleSubmit, setValue } = useForm();
+    useEffect(() => {
+        Data();
+    })
+
+    const Data = async () => {
+        await AsyncStorage.getItem('Token')
+            .then((value) => {
+                if (!value) {
+                    console.log('Si hay credenciales')
+                }
+                else
+                    console.log('No hay credenciales')
+            })
+            .catch((err) => console.error(err))
+    }
+
+    const Onsubmit = (data) => {
+        console.log(data);
+        AsyncStorage.setItem('Token', 'token123', () => {
+            console.log(`Se ha guardado el token`)
+        })
+    }
     return (
         <View style={styles.Container}>
-            <View></View>
             <Text style={styles.title}>Medical Control</Text>
-            <TextInput
-                placeholder="Correo Electrónico"
-                style={styles.textInput}
-            />
-            <TextInput
-                placeholder="Contraseña"
-                style={styles.textInput}
-                secureTextEntry={true}
-            />
-            <Button_find />
-            <Button_Setting />
+            <View>
+                <Input
+                    control={control}
+                    setValue={setValue}
+                    name="Correo"
+                    placeholder="Ingrese su correo electronico"
+                    rules={{ required: 'Este campo es obligatorio' }} />
+                <Input
+                    control={control}
+                    setValue={setValue}
+                    name="Contraseña"
+                    placeholder="Ingrese su contraseña"
+                    rules={{ required: 'Este campo es obligatorio' }} />
+            </View>
+            <TouchableOpacity onPress={handleSubmit(Onsubmit)}
+                style={styles.Button} >
+                <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff' }} >Iniciar Sesion</Text>
+            </TouchableOpacity>
             <Text
                 style={styles.textCuenta}
             >No tienes ningúna cuenta?</Text>
-            <Button_CreateC/>
+            <Button_CreateC />
             <StatusBar style="auto" />
         </View>
     )
@@ -42,19 +75,18 @@ const styles = StyleSheet.create({
         color: "#000000",
         fontWeight: 'bold'
     },
-    textInput: {
-        backgroundColor: "#F2E6CF",
-        borderRadius: 20,
-        width: "60%",
-        padding: 12,
-        height: 50,
-        marginTop: 40,
-        paddingStart: 15
-    },
     textCuenta: {
         marginTop: 20,
         right: 45,
-    }
+    },
+    Button: {
+        backgroundColor: "gray",
+        padding: 10,
+        marginTop: "20%",
+        width: "50%",
+        alignItems: 'center',
+        borderRadius: 50,
+    },
 })
 
 export default Home
