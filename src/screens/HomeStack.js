@@ -20,22 +20,20 @@ const Home = () => {
     useEffect(() => {
         AsyncStorage.getItem('Token')
             .then((value) => {
-                if (!value) {
+                if (value) {
                     Navigation.navigate('Setting')
                 }
             })
             .catch((err) => console.error(err))
     });
 
-    const Data = async () => {
-        
-    }
-
     const Onsubmit = (data) => {
         console.log(data);
         AsyncStorage.setItem('Token', 'token123', () => {
             console.log(`Se ha guardado el token`)
         })
+
+        Navigation.navigate('Setting')
     }
     return (
         <View style={styles.Container}>
