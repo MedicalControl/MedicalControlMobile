@@ -1,22 +1,11 @@
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-//import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
+//import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react";
-import { StyleSheet } from "react-native";
 //Screens
-import HomeStack from "./screens/HomeStack";
-import SettingScreens from "./screens/SettingScreens";
-import AccountScreen from "./screens/AccountScreen";
-import Create from "./screens/CreatScreens";
+import {AccountScreen, CreateAccount, HomeStack, SettingScreens} from './screen'
 
-
-//Iconos
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-//Funcion
 const HomeStackNa = createNativeStackNavigator();
-function MyStack() {
+export function MyStack() {
     return (
         <HomeStackNa.Navigator
             initialRouteName="HomeStack"
@@ -44,7 +33,7 @@ function MyStack() {
             />
             <HomeStackNa.Screen
                 name='Create'
-                component={Create}
+                component={CreateAccount}
                 options={{
                     headerShown: false
                 }}
@@ -55,10 +44,3 @@ function MyStack() {
     )
 }
 
-export default function Navigation() {
-    return (
-        <NavigationContainer>
-            <MyStack />
-        </NavigationContainer>
-    );
-}

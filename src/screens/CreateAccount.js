@@ -1,9 +1,6 @@
-import React from "react";
 import { View, Text } from "react-native";
 
-
-const Create = () => {
-
+export const CreateAccount = () => {
     return (
         <View>
             <Text
@@ -15,8 +12,5 @@ const Create = () => {
             >Crear cuenta</Text>
 
         </View>
-
     )
 }
-
-export default Create

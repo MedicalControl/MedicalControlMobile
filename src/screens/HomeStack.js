@@ -9,11 +9,9 @@ import { useNavigation } from "@react-navigation/native";
 import Input from "../componentes/Inputs";
 
 //Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
-import { Button_find } from "../componentes/ButtonAc";
-import { Button_Setting } from "../componentes/Button_2";
 import { Button_CreateC } from "../componentes/ButtonCreatC";
 
-const Home = () => {
+export const HomeStack = () => {
 
     const { control, handleSubmit, setValue } = useForm();
     const Navigation = useNavigation();
@@ -90,4 +88,3 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Home

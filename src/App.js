@@ -1,8 +1,5 @@
-import React from "react";
-import Navigation from "./Navigation";
+import Navigation from "./Navigation/index";
 
 export default function App() {
-  return (
-    <Navigation />
-  )
+  return ( <Navigation/> )
 }

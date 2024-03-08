@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import * as Updates from 'expo-updates';
 
-const SettingScreens = () => {
+export const SettingScreens = () => {
     const Navigation = useNavigation();
     return (
         <View style={{
@@ -41,5 +41,3 @@ const SettingScreens = () => {
 
     )
 }
-
-export default SettingScreens

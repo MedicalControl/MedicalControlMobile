@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 
 
-const AccountScreen = () => {
+export const AccountScreen = () => {
     const back = useNavigation();
 
     return (
@@ -49,5 +49,3 @@ const styles = StyleSheet.create({
     }
 
 })
-
-export default AccountScreen
