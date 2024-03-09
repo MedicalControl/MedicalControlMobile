@@ -6,10 +6,10 @@ import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
 
 //Nuevo componente
-import Input from "../componentes/Inputs";
+import Input from "../components/Inputs";
 
 //Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
-import { Button_CreateC } from "../componentes/ButtonCreatC";
+import { Button_CreateC } from "../components/ButtonCreatC";
 
 export const HomeStack = () => {
 
