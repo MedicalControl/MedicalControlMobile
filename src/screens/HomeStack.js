@@ -4,15 +4,18 @@ import { StatusBar } from "expo-status-bar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
-
 //Nuevo componente
 import Input from "../components/Inputs";
+<<<<<<< HEAD
 
 //Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
 import { Button_CreateC } from "../components/ButtonCreatC";
 
+=======
+//Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
+import { Button_CreateC } from "../components/ButtonCreatC";
+>>>>>>> cbd302890fd5a003762293d37fbe390986d3c6db
 export const HomeStack = () => {
-
     const { control, handleSubmit, setValue } = useForm();
     const Navigation = useNavigation();
     useEffect(() => {
@@ -24,13 +27,11 @@ export const HomeStack = () => {
             })
             .catch((err) => console.error(err))
     });
-
     const Onsubmit = (data) => {
         console.log(data);
         AsyncStorage.setItem('Token', 'token123', () => {
             console.log(`Se ha guardado el token`)
         })
-
         Navigation.navigate('Setting')
     }
     return (
