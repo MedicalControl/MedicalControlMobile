@@ -12,7 +12,7 @@ import { TextInput } from "react-native-web";
 export const HomeStack = () => {
     const { control, handleSubmit, setValue } = useForm();
 
-    const Navigation = useNavigation();
+    const Navigation = useNavigation();   
     useEffect(() => {
         AsyncStorage.getItem('Token')
             .then((value) => {
