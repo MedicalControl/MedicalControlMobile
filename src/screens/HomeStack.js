@@ -6,25 +6,12 @@ import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
 //Nuevo componente
 import Input from "../components/Inputs";
-<<<<<<< HEAD
 //Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
 import { Button_CreateC } from "../components/ButtonCreatC";
 import { TextInput } from "react-native-web";
 export const HomeStack = () => {
-    const { control, handleSubmit, setValue } = useForm(); //objects
-=======
-<<<<<<< HEAD
-
-//Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
-import { Button_CreateC } from "../components/ButtonCreatC";
-
-=======
-//Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
-import { Button_CreateC } from "../components/ButtonCreatC";
->>>>>>> cbd302890fd5a003762293d37fbe390986d3c6db
-export const HomeStack = () => {
     const { control, handleSubmit, setValue } = useForm();
->>>>>>> 6179e9426ea11ee20ea3a6f5967f56bebca4bfda
+
     const Navigation = useNavigation();
     useEffect(() => {
         AsyncStorage.getItem('Token')
