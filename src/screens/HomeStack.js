@@ -11,8 +11,7 @@ import { Button_CreateC } from "../components/ButtonCreatC";
 
 export const HomeStack = () => {
     const { control, handleSubmit, setValue } = useForm();
-
-    const Navigation = useNavigation();   
+    const Navigation = useNavigation();
     useEffect(() => {
         AsyncStorage.getItem('Token')
             .then((value) => {
@@ -30,15 +29,17 @@ export const HomeStack = () => {
         Navigation.navigate('Setting')
     }
     return (
+        
         <View style={styles.Container}>
             <Text style={styles.title}>Medical Control</Text>
             <View>
                 <Input
                     control={control}
                     setValue={setValue}
-                    name="Correo"
+                    name="Correo"//campo
                     placeholder="Ingrese su correo electronico"
-                    rules={{ required: 'Este campo es obligatorio' }}
+                    rules={{ required: true}}
+                    
                 />
                 <Input
                     control={control}
@@ -49,7 +50,7 @@ export const HomeStack = () => {
             </View>
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
                 style={styles.Button} >
-                <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff', fontWeight : 'bold' }} >Iniciar Sesion</Text>
+                <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff', fontWeight: 'bold' }} >Iniciar Sesion</Text>
             </TouchableOpacity>
             <Text
                 style={styles.textCuenta}
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
         width: "50%",
         alignItems: 'center',
         borderRadius: 50,
+        
     },
 })
 

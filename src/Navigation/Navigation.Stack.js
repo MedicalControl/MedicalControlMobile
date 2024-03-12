@@ -30,14 +30,6 @@ export function MyStack() {
                     headerShown: false
                 }}
             />
-            <HomeStackNa.Screen
-                name='Create'
-                component={CreateAccount}
-                options={{
-                    headerShown: false
-                }}
-            />
-
 
         </HomeStackNa.Navigator>
     )

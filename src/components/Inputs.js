@@ -22,12 +22,11 @@ export default function Input({ control, setValue, name, placeholder = '', rules
           </View>
         )}
         name={name}
-        rules={rules}
+        rules={rules}       
       />
     </View>
   )
 }
-
 const styles = StyleSheet.create({
   Input: {
     backgroundColor: "#D8D9ED",
