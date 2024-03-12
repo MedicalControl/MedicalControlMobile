@@ -9,7 +9,8 @@ import Input from "../components/Inputs";
 //Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
 import { Button_CreateC } from "../components/ButtonCreatC";
 
-export const HomeStack = () => {
+
+export var HomeStack = () => {
     const { control, handleSubmit, setValue } = useForm();
     const Navigation = useNavigation();
     useEffect(() => {
@@ -29,7 +30,7 @@ export const HomeStack = () => {
         Navigation.navigate('Setting')
     }
     return (
-        
+
         <View style={styles.Container}>
             <Text style={styles.title}>Medical Control</Text>
             <View>
@@ -38,15 +39,15 @@ export const HomeStack = () => {
                     setValue={setValue}
                     name="Correo"//campo
                     placeholder="Ingrese su correo electronico"
-                    rules={{ required: true}}
-                    
+                    rules={{ required : 'Este campo es obligatorio'}}
                 />
                 <Input
                     control={control}
                     setValue={setValue}
                     name="Contraseña"
                     placeholder="Ingrese su contraseña"
-                    rules={{ required: 'Este campo es obligatorio' }} />
+                    rules={{ required : 'Este campo es obligatorio'}}
+                />
             </View>
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
                 style={styles.Button} >
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
         width: "50%",
         alignItems: 'center',
         borderRadius: 50,
-        
+
     },
 })
 

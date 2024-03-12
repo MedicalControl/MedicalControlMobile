@@ -1,6 +1,7 @@
 import { TextInput, View, StyleSheet, Text } from "react-native";
 import { Controller } from 'react-hook-form';
 
+
 export default function Input({ control, setValue, name, placeholder = '', rules = {} }) {
   return (
     <View>
@@ -18,11 +19,18 @@ export default function Input({ control, setValue, name, placeholder = '', rules
               style={styles.Input}
               placeholder={placeholder}
             />
-            {error && <Text style={{ color: 'red' }}>Este campo es obligatorio</Text>}
+            {error && (
+              <Text style={{ color: 'red' }}>
+                {error.type === 'required' && 'Este campo es obligatorio'}
+              </Text>
+            )}
+
+
+
           </View>
         )}
         name={name}
-        rules={rules}       
+        rules={rules}
       />
     </View>
   )
