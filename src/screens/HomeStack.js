@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import Input from "../components/Inputs";
 //Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
 import { Button_CreateC } from "../components/ButtonCreatC";
-import { TextInput } from "react-native-web";
+
 export const HomeStack = () => {
     const { control, handleSubmit, setValue } = useForm();
 
@@ -49,7 +49,7 @@ export const HomeStack = () => {
             </View>
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
                 style={styles.Button} >
-                <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff' }} >Iniciar Sesion</Text>
+                <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff', fontWeight : 'bold' }} >Iniciar Sesion</Text>
             </TouchableOpacity>
             <Text
                 style={styles.textCuenta}
@@ -62,7 +62,7 @@ export const HomeStack = () => {
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
-        backgroundColor: "#9CD2D3",
+        backgroundColor: "#FFFCF5",
         alignItems: 'center', //para centrar
         justifyContent: 'center' //para que vaya al mero centro
     },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         right: 45,
     },
     Button: {
-        backgroundColor: "gray",
+        backgroundColor: "#2AB9B7",
         padding: 10,
         marginTop: "20%",
         width: "50%",

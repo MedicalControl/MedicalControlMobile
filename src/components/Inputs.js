@@ -1,7 +1,6 @@
 import { TextInput, View, StyleSheet, Text } from "react-native";
 import { Controller } from 'react-hook-form';
 
-
 export default function Input({ control, setValue, name, placeholder = '', rules = {} }) {
   return (
     <View>
@@ -18,13 +17,8 @@ export default function Input({ control, setValue, name, placeholder = '', rules
               value={value}
               style={styles.Input}
               placeholder={placeholder}
-            
-              
             />
             {error && <Text style={{ color: 'red' }}>Este campo es obligatorio</Text>}
-        
-
-    
           </View>
         )}
         name={name}
@@ -36,7 +30,7 @@ export default function Input({ control, setValue, name, placeholder = '', rules
 
 const styles = StyleSheet.create({
   Input: {
-    backgroundColor: "#F2E6CF",
+    backgroundColor: "#D8D9ED",
     borderRadius: 20,
     width: "100%",
     padding: 12,
