@@ -22,11 +22,10 @@ export default function Input({ control, setValue, name, placeholder = '', rules
             {error && (
               <Text style={{ color: 'red' }}>
                 {error.type === 'required' && 'Este campo es obligatorio'}
+                {error.type === 'maxLength' && 'No ingrese más de 10 caracteres'}
+                {error.type === 'pattern' && 'Correo no valido'}
               </Text>
             )}
-
-
-
           </View>
         )}
         name={name}

@@ -39,14 +39,30 @@ export var HomeStack = () => {
                     setValue={setValue}
                     name="Correo"//campo
                     placeholder="Ingrese su correo electronico"
-                    rules={{ required : 'Este campo es obligatorio'}}
+                    rules={{
+                        required: 'Este campo es obligatorio',
+                        maxLength: {
+                            value: 20,
+                            message: 'No ingrese más de 10 caracteres',
+                        },
+                        pattern: {
+                            value: /^\S+@\S+$/i,
+                            message: 'Ingrese un correo electrónico válido',
+                        }
+                    }}
                 />
                 <Input
                     control={control}
                     setValue={setValue}
                     name="Contraseña"
                     placeholder="Ingrese su contraseña"
-                    rules={{ required : 'Este campo es obligatorio'}}
+                    rules={{
+                        required: 'Este campo es obligatorio',
+                        maxLength: {
+                            value: 20,
+                            message: 'No ingrese más de 10 caracteres',
+                        }
+                    }}
                 />
             </View>
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
