@@ -14,10 +14,12 @@ export default function Input({ control, setValue, name, placeholder = '', rules
               onChangeText={(text) => {
                 setValue(name, text);
                 onChange(text);
+                
               }}
               value={value}
               style={styles.Input}
               placeholder={placeholder}
+
             />
             {error && (
               <Text style={{ color: 'red' }}>

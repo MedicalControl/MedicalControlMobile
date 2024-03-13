@@ -11,6 +11,7 @@ import { Button_CreateC } from "../components/ButtonCreatC";
 
 
 export var HomeStack = () => {
+    //objetos
     const { control, handleSubmit, setValue } = useForm();
     const Navigation = useNavigation();
     useEffect(() => {
@@ -24,6 +25,7 @@ export var HomeStack = () => {
     });
     const Onsubmit = (data) => {
         console.log(data);
+        //Api
         AsyncStorage.setItem('Token', 'token123', () => {
             console.log(`Se ha guardado el token`)
         })
@@ -41,10 +43,6 @@ export var HomeStack = () => {
                     placeholder="Ingrese su correo electronico"
                     rules={{
                         required: 'Este campo es obligatorio',
-                        maxLength: {
-                            value: 20,
-                            message: 'No ingrese más de 10 caracteres',
-                        },
                         pattern: {
                             value: /^\S+@\S+$/i,
                             message: 'Ingrese un correo electrónico válido',
@@ -59,7 +57,7 @@ export var HomeStack = () => {
                     rules={{
                         required: 'Este campo es obligatorio',
                         maxLength: {
-                            value: 20,
+                            value: 10,
                             message: 'No ingrese más de 10 caracteres',
                         }
                     }}
@@ -67,6 +65,7 @@ export var HomeStack = () => {
             </View>
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
                 style={styles.Button} >
+                    
                 <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff', fontWeight: 'bold' }} >Iniciar Sesion</Text>
             </TouchableOpacity>
             <Text
