@@ -1,8 +1,7 @@
 import { TextInput, View, StyleSheet, Text } from "react-native";
 import { Controller } from 'react-hook-form';
 
-
-export default function Input({ control, setValue, name, placeholder = '', rules = {} }) {
+export default function Inputs({ control, setValue, name, placeholder = '', rules = {} }) {
   return (
     <View>
       <Controller
@@ -19,7 +18,6 @@ export default function Input({ control, setValue, name, placeholder = '', rules
               value={value}
               style={styles.Input}
               placeholder={placeholder}
-
             />
             {error && (
               <Text style={{ color: 'red' }}>
@@ -44,6 +42,6 @@ const styles = StyleSheet.create({
     padding: 12,
     height: 50,
     marginTop: 40,
-    paddingStart: 15
+    paddingStart: 15,
   },
 })

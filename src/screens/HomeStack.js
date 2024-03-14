@@ -5,12 +5,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
 //Nuevo componente
-import Input from "../components/Inputs";
+import Inputs from "../components/Inputs";
 //Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
 import { Button_CreateC } from "../components/ButtonCreatC";
 
 
-export var HomeStack = () => {
+export const HomeStack = () => {
     //objetos
     const { control, handleSubmit, setValue } = useForm();
     const Navigation = useNavigation();
@@ -32,11 +32,10 @@ export var HomeStack = () => {
         Navigation.navigate('Setting')
     }
     return (
-
         <View style={styles.Container}>
             <Text style={styles.title}>Medical Control</Text>
             <View>
-                <Input
+                <Inputs
                     control={control}
                     setValue={setValue}
                     name="Correo"//campo
@@ -49,7 +48,7 @@ export var HomeStack = () => {
                         }
                     }}
                 />
-                <Input
+                <Inputs
                     control={control}
                     setValue={setValue}
                     name="Contraseña"
@@ -65,7 +64,6 @@ export var HomeStack = () => {
             </View>
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
                 style={styles.Button} >
-                    
                 <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff', fontWeight: 'bold' }} >Iniciar Sesion</Text>
             </TouchableOpacity>
             <Text
@@ -99,7 +97,5 @@ const styles = StyleSheet.create({
         width: "50%",
         alignItems: 'center',
         borderRadius: 50,
-
     },
 })
-

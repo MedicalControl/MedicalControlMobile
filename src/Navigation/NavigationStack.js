@@ -30,8 +30,6 @@ export function MyStack() {
                     headerShown: false
                 }}
             />
-
         </HomeStackNa.Navigator>
     )
 }
-

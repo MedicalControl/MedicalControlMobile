@@ -11,7 +11,6 @@ export const SettingScreens = () => {
             marginTop: 300,
             flexDirection: 'columns',
             alignItems: 'center',
-
         }}>
             <Text
                 style={{
@@ -19,7 +18,6 @@ export const SettingScreens = () => {
                     textAlign: 'center',
                 }}
             >Setting Screen</Text>
-
             <TouchableOpacity
                 style={{
                     height: 100,
@@ -29,15 +27,12 @@ export const SettingScreens = () => {
                     marginTop: 100,
                 }}
                 onPress={() => {
-                    AsyncStorage.removeItem('Token', async() => {
+                    AsyncStorage.removeItem('Token', async () => {
                         console.log('Se ha eliminado el Token aca tienes que mandar nuevamente a la pantalla de log in lo que hare a continuacion solo es una mala solucion');
                         await Updates.reloadAsync();
                     })
                 }}>
-
             </TouchableOpacity>
-
         </View >
-
     )
 }
