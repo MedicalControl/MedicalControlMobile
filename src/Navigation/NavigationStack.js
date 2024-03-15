@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 //import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react";
 //Screens
-import { AccountScreen, CreateAccount, HomeStack, SettingScreens } from './screen'
+import { AccountScreen, CreateAccount, HomeStack, SettingScreens } from '../screens/screen'
 const HomeStackNa = createNativeStackNavigator();
 export function MyStack() {
     return (
