@@ -1,4 +1,4 @@
-import Navigation from "./constants/index";
+import Navigation from "./Navigation/index";
 
 export default function App() {
   return ( <Navigation/> )
