@@ -8,25 +8,9 @@ export const AccountScreen = () => {
     const back = useNavigation();
     const { control, handleSubmit, setValue } = useForm();
 
-    const Input = {
-        options: {
-            "backgroundColor": '#000000',
-            "borderRadius": 20,
-            'width': '200%',
-            "padding": 12,
-            "height": 50,
-        },
-    };
     return (
         <View style={style.fondo}>
-            <Inputs
-                style={[style.InputStyle, {
-                    backgroundColor: Input.options.backgroundColor,
-                    width: Input.options.width,
-                    padding: Input.options.padding,
-                    borderRadius: Input.options.borderRadius,
-                    height: Input.options.height
-                }]}
+            <Inputs 
                 control={control}
                 setValue={setValue}
                 name="Nombre"//campo
@@ -38,22 +22,11 @@ export const AccountScreen = () => {
                         message: 'No ingrese mas de 10 caracteres'
                     }
                 }}
+                style={{ right: 80 }}
             />
-
-            <TextInput style={[style.InputStyle, {
-                backgroundColor: Input.options.backgroundColor,
-                width: Input.options.width,
-                padding: Input.options.padding,
-                borderRadius: Input.options.borderRadius,
-                height: Input.options.height
-            }]}>
-
-            </TextInput>
         </View>
     )
 }
-
-
 const style = StyleSheet.create({
     fondo: {
         backgroundColor: "#2AB9B7",
@@ -61,11 +34,7 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
-    InputStyle: {
-        
-            alignItems: 'center',
-            justifyContent: 'center',
-        
+    change : {
+        right : '800'
     }
 })
