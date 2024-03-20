@@ -49,6 +49,7 @@ export const HomeStack = () => {
                     }}
                 />
                 <Inputs
+                    secureTextEntry={true}
                     control={control}
                     setValue={setValue}
                     name="Contraseña"
@@ -57,8 +58,8 @@ export const HomeStack = () => {
                         required: 'Este campo es obligatorio',
                         maxLength: {
                             value: 10,
-                            message: 'No ingrese más de 10 caracteres',
-                        }
+                            message: 'No ingrese más de 10 digitos',
+                        },
                     }}
                 />
             </View>
