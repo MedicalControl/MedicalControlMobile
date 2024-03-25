@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useForm } from 'react-hook-form'
@@ -33,8 +33,20 @@ export const HomeStack = () => {
     }
     return (
         <View style={styles.Container}>
-            <Text style={styles.title}>Medical Control</Text>
             <View>
+                <Image
+                    source={require('../resources/logo.png')}
+                    style={{
+                        width: 300,
+                        height: 180,
+                        borderRadius: 10,
+                        zIndex: 1,
+                        left: 40, 
+                    }}
+                />
+                <Text style={styles.title}>Medical Control</Text>
+            </View>
+            <View style={{ gap: 50 }}>
                 <Inputs
                     control={control}
                     setValue={setValue}
@@ -67,10 +79,10 @@ export const HomeStack = () => {
                 style={styles.Button} >
                 <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff', fontWeight: 'bold' }} >Iniciar Sesion</Text>
             </TouchableOpacity>
-            <Text
-                style={styles.textCuenta}
-            >No tienes ningúna cuenta?</Text>
-            <Button_CreateC />
+            <View style={styles.textAccount}>
+                <Text>No tienes ningúna cuenta?</Text>
+                <Button_CreateC />
+            </View>
             <StatusBar style="auto" />
         </View>
     )
@@ -80,21 +92,20 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#FFFCF5",
         alignItems: 'center', //para centrar
-        justifyContent: 'center' //para que vaya al mero centro
+        justifyContent: 'center', //para que vaya al mero centro
+        gap: 50
     },
     title: {
         fontSize: 45,
         color: "#000000",
         fontWeight: 'bold'
     },
-    textCuenta: {
-        marginTop: 20,
-        right: 45,
+    textAccount: {
+        flexDirection: 'row',
     },
     Button: {
         backgroundColor: "#2AB9B7",
         padding: 10,
-        marginTop: "20%",
         width: "50%",
         alignItems: 'center',
         borderRadius: 50,

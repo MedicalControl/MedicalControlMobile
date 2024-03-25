@@ -7,7 +7,7 @@ export function Button_CreateC() {
     return (
         <TouchableOpacity
             onPress={() => Navigation.navigate('Account')}>
-            <Text style={styles.Sing_Up}>Registare</Text>
+            <Text style={styles.Sing_Up}> Registare</Text>
         </TouchableOpacity>
     )
 }
@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     Sing_Up: {
         fontSize: 15,
         color: "black",
-        left: 60,
-        textDecorationLine: 'underline'
+        textDecorationLine: 'underline',
     }
 })

@@ -1,10 +1,9 @@
 import { TextInput, View, StyleSheet, Text } from "react-native";
 import { Controller } from 'react-hook-form';
-import { Dimensions } from "react-native";
 
 export default function Inputs({ control, setValue, name, placeholder = '', rules = {}, style }) {
   return (
-    <View style={[style]}>
+    <View>
       <Controller
         control={control}
 
@@ -26,7 +25,7 @@ export default function Inputs({ control, setValue, name, placeholder = '', rule
                 {error.type === 'maxLength' && 'No ingrese más de 10 digitos'}
                 {error.type === 'pattern' && 'Correo no valido'}
               </Text>
-              
+
             )}
           </View>
         )}
@@ -40,11 +39,11 @@ const styles = StyleSheet.create({
   Input: {
     backgroundColor: "#D8D9ED",
     borderRadius: 20,
-    width: "100%",
+    width: 300,
     padding: 12,
-    height: 50,
-    marginTop: 40,
+    height: 70,
     paddingStart: 15,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    elevation: 10,
   },
 })
