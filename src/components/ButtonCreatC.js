@@ -6,7 +6,7 @@ export function Button_CreateC() {
     const Navigation = useNavigation();
     return (
         <TouchableOpacity
-            onPress={() => Navigation.navigate('Account')}>
+            onPress={() => Navigation.navigate('Register')}>
             <Text style={styles.Sing_Up}>Registare</Text>
         </TouchableOpacity>
     )

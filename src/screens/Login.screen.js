@@ -4,12 +4,11 @@ import { StatusBar } from "expo-status-bar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
-//Nuevo componente
-import Inputs from "../components/Inputs";
-import { Button_CreateC } from "../components/ButtonCreatC";
 import Constant from 'expo-constants'
+//Nuevo componente
+import { Button_CreateC, Inputs} from "../components/index";
 
-export const HomeStack = () => {
+export const Login = () => {
     //objetos
     const { control, handleSubmit, setValue } = useForm();
     const Navigation = useNavigation();
@@ -17,7 +16,7 @@ export const HomeStack = () => {
         AsyncStorage.getItem('Token')
             .then((value) => {
                 if (value) {
-                    Navigation.navigate('Setting')
+                    Navigation.navigate('Home')
                 }
             })
             .catch((err) => console.error(err))
@@ -41,7 +40,7 @@ export const HomeStack = () => {
             .then(async (response) => {
                 await AsyncStorage.setItem("Token", response.token, () => {
                     console.log('Token was saved successfully')
-                    Navigation.navigate('Setting');
+                    Navigation.navigate('Home');
                 })
             })
             .catch(error => console.error('Error:', error));
