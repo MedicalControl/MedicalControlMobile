@@ -6,9 +6,8 @@ import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
 //Nuevo componente
 import Inputs from "../components/Inputs";
-//Haz que los botones que son links sea uno solo pasa propiedades para que puedas trabajar con un mismo componente
 import { Button_CreateC } from "../components/ButtonCreatC";
-
+import Constant from 'expo-constants'
 
 export const HomeStack = () => {
     //objetos
@@ -23,13 +22,29 @@ export const HomeStack = () => {
             })
             .catch((err) => console.error(err))
     });
-    const Onsubmit = (data) => {
-        console.log(data);
-        //Api
-        AsyncStorage.setItem('Token', 'token123', () => {
-            console.log(`Se ha guardado el token`)
-        })
-        Navigation.navigate('Setting')
+    const Onsubmit = async (data) => {
+        const ApiUri = await Constant.expoConfig.extra.ApiUri;
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+        fetch(ApiUri, requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('The request was not successful: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(async (response) => {
+                await AsyncStorage.setItem("Token", response.token, () => {
+                    console.log('Token was saved successfully')
+                    Navigation.navigate('Setting');
+                })
+            })
+            .catch(error => console.error('Error:', error));
     }
     return (
         <View style={styles.Container}>
@@ -41,7 +56,7 @@ export const HomeStack = () => {
                         height: 180,
                         borderRadius: 10,
                         zIndex: 1,
-                        left: 40, 
+                        left: 40,
                     }}
                 />
                 <Text style={styles.title}>Medical Control</Text>
@@ -50,7 +65,7 @@ export const HomeStack = () => {
                 <Inputs
                     control={control}
                     setValue={setValue}
-                    name="Correo"//campo
+                    name="email"//campo
                     placeholder="Ingrese su correo electronico"
                     rules={{
                         required: 'Este campo es obligatorio',
@@ -64,7 +79,7 @@ export const HomeStack = () => {
                     secureTextEntry={true}
                     control={control}
                     setValue={setValue}
-                    name="Contraseña"
+                    name="password"
                     placeholder="Ingrese su contraseña"
                     rules={{
                         required: 'Este campo es obligatorio',
