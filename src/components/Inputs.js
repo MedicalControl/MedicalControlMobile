@@ -1,7 +1,7 @@
 import { TextInput, View, StyleSheet, Text } from "react-native";
 import { Controller } from 'react-hook-form';
 
-export default function Inputs({ control, setValue, name, placeholder = '', rules = {}, style }) {
+export  const  Inputs = ({ control, setValue, name, placeholder = '', rules = {}, style }) => {
   return (
     <View>
       <Controller

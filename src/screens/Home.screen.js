@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import * as Updates from 'expo-updates';
 
-export const SettingScreens = () => {
+export const Home = () => {
     const Navigation = useNavigation();
     return (
         <View style={{
