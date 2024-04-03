@@ -14,8 +14,9 @@ export function Button_CreateC() {
 const styles = StyleSheet.create({
     Sing_Up: {
         fontSize: 15,
-        color: "black",
-        left: 60,
-        textDecorationLine: 'underline'
+        color: "#2AB9B7",
+        textDecorationLine: 'underline',
+        textDecorationColor: '#2AB9B7', 
+        left: 5
     }
 })
