@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
 import Constant from 'expo-constants'
 //Nuevo componente
-import { Button_CreateC, Inputs} from "../components/index";
+import { Button_CreateC, Inputs } from "../components/index";
 
 export const Login = () => {
     //objetos
@@ -30,6 +30,7 @@ export const Login = () => {
             },
             body: JSON.stringify(data)
         };
+        console.log(data);
         fetch(ApiUri, requestOptions)
             .then(response => {
                 if (!response.ok) {
@@ -55,7 +56,8 @@ export const Login = () => {
                         height: 180,
                         borderRadius: 10,
                         zIndex: 1,
-                        left: 40,
+                        justifyContent: 'center',
+
                     }}
                 />
                 <Text style={styles.title}>Medical Control</Text>
@@ -82,10 +84,6 @@ export const Login = () => {
                     placeholder="Ingrese su contraseña"
                     rules={{
                         required: 'Este campo es obligatorio',
-                        maxLength: {
-                            value: 10,
-                            message: 'No ingrese más de 10 digitos',
-                        },
                     }}
                 />
             </View>
@@ -107,12 +105,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFCF5",
         alignItems: 'center', //para centrar
         justifyContent: 'center', //para que vaya al mero centro
-        gap: 50
+        gap: 50,
     },
     title: {
         fontSize: 45,
         color: "#000000",
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        left: 22
     },
     textAccount: {
         flexDirection: 'row',
@@ -123,5 +122,6 @@ const styles = StyleSheet.create({
         width: "50%",
         alignItems: 'center',
         borderRadius: 50,
+        elevation: 80
     },
 })

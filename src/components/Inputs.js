@@ -22,7 +22,6 @@ export  const  Inputs = ({ control, setValue, name, placeholder = '', rules = {}
             {error && (
               <Text style={{ color: 'red', left: 12 }}>
                 {error.type === 'required' && 'Este campo es obligatorio'}
-                {error.type === 'maxLength' && 'No ingrese más de 10 digitos'}
                 {error.type === 'pattern' && 'Correo no valido'}
                 {error.type === 'validate' && 'Ingrese un numero valido'}
               </Text>
@@ -46,5 +45,6 @@ const styles = StyleSheet.create({
     paddingStart: 15,
     justifyContent: 'center',
     elevation: 10,
+
   },
 })
