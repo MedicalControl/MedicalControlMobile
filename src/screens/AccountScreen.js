@@ -37,11 +37,17 @@ export const AccountScreen = () => {
                     setValue={setValue}
                     name="nombre"//campo
                     placeholder="Nombre"
+                    rules={{
+                        required: 'Por favor rellenar los datos',
+                        maxLength: {
+                            value: 10,
+                        }
+
+                    }}
                     style={{
                         right: 70,
                         width: Dimensions.get('screen').width * 0.5,
                         paddingVertical: 10
-
                     }}
                 />
                 <Inputs
@@ -49,6 +55,12 @@ export const AccountScreen = () => {
                     setValue={setValue}
                     name="apellido"//campo
                     placeholder="Apellido"
+                    rules={{
+                        required: 'Por favor rellenar los datos',
+                        maxLength: {
+                            value: 10,
+                        }
+                    }}
                     style={{
                         right: 70,
                         width: Dimensions.get('screen').width * 0.5,
@@ -60,6 +72,12 @@ export const AccountScreen = () => {
                     setValue={setValue}
                     name="cedula"//campo
                     placeholder="Cedula"
+                    rules={{
+                        required: 'Por favor rellenar los datos',
+                        maxLength: {
+                            value: 10,
+                        }
+                    }}
                     style={{
                         right: 70,
                         width: Dimensions.get('screen').width * 0.5,
@@ -71,6 +89,12 @@ export const AccountScreen = () => {
                     setValue={setValue}
                     name="telefono"//campo
                     placeholder="Telefono"
+                    rules={{
+                        required: 'Por favor rellenar los datos',
+                        //valuesNumber : true,
+                        validate: (value) => value > 0 || value <= 8 ,
+                        message: 'Ingrese unn numero  valido'
+                    }}
                     style={{
                         right: 70,
                         width: Dimensions.get('screen').width * 0.5,

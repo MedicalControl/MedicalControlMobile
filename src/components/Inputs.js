@@ -25,6 +25,7 @@ export default function Inputs({ control, setValue, name, placeholder = '', rule
                 {error.type === 'required' && 'Este campo es obligatorio'}
                 {error.type === 'maxLength' && 'No ingrese más de 10 digitos'}
                 {error.type === 'pattern' && 'Correo no valido'}
+                {error.type === 'validate' && 'Ingrese un numero valido'}
               </Text>
               
             )}
