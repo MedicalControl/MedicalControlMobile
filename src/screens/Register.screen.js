@@ -10,6 +10,8 @@ import { Inputs } from "../components/index";
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
+
+
 export const Register = () => {
     const back = useNavigation();
     const { control, handleSubmit, setValue } = useForm();
@@ -69,7 +71,7 @@ export const Register = () => {
                     control={control}
                     setValue={setValue}
                     name="cedula"//campo
-                    placeholder="Cedula" 
+                    placeholder="Cedula"
                     rules={{
                         required: 'Por favor rellenar los datos',
                     }}
@@ -96,6 +98,36 @@ export const Register = () => {
                         paddingVertical: 10,
                     }}
                 />
+                <Inputs
+                    control={control}
+                    setValue={setValue}
+                    name="Dirección"//campo
+                    placeholder="Dirección"
+                    rules={{
+                        required: 'Por favor rellenar los datos',
+                    }}
+                    style={{
+                        right: 70,
+                        width: SCREEN_WIDTH * 0.5,
+                        paddingVertical: 10,
+                        
+                    }}
+                />
+                <Inputs
+                    control={control}
+                    setValue={setValue}
+                    name="Profesion"//campo
+                    placeholder="Profesion"
+                    rules={{
+                        required: 'Por favor rellenar los datos',
+                    }}
+                    style={{
+                        right: 70,
+                        width: SCREEN_WIDTH * 0.5,
+                        paddingVertical: 10,
+                        
+                    }}
+                />
             </View>
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
             >
@@ -111,10 +143,12 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    Inputs: {
+   Inputs: {
         // Con esto puedes cambiar la separacion de los inputs
-        gap: 50
+        gap: 10,
+    
     },
+    
     change: {
         right: '800'
     }

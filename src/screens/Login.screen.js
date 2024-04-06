@@ -57,7 +57,6 @@ export const Login = () => {
                         borderRadius: 10,
                         zIndex: 1,
                         justifyContent: 'center',
-
                     }}
                 />
                 <Text style={styles.title}>Medical Control</Text>

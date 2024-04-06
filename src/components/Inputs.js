@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 
 export  const  Inputs = ({ control, setValue, name, placeholder = '', rules = {}, style }) => {
   return (
-    <View>
+    <View style = {[style]}>
       <Controller
         control={control}
 
