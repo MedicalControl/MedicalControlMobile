@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form'
 import { useEffect } from "react";
@@ -29,61 +29,152 @@ export const Register = () => {
             console.log(`Se ha guardado el token`)
         })
     }
-
     return (
-        <View style={style.container}>
-            <View style={style.Inputs}>
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="nombre"//campo
-                    placeholder="Nombre"
-                    style={{
-                        right: 70,
-                        width:SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="apellido"//campo
-                    placeholder="Apellido"
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="cedula"//campo
-                    placeholder="Cedula"
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="telefono"//campo
-                    placeholder="Telefono"
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10,
-                    }}
-                />
+        <ScrollView>
+            <View style={style.container}>
+                <View style={style.Inputs}>
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="nombre"//campo
+                        placeholder="Nombre"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="apellido"//campo
+                        placeholder="Apellido"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="cedula"//campo
+                        placeholder="Cedula"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="telefono"//campo
+                        placeholder="Telefono"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="Municipio"//campo
+                        placeholder="municipio"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="direccion"//campo
+                        placeholder="Direccion"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="direccion"//campo
+                        placeholder="Direccion"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="direccion"//campo
+                        placeholder="Direccion"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                </View>
+                <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
+                    <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' }} >Siguiente</Text>
+                </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={handleSubmit(Onsubmit)}
-            >
-                <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' }} >Siguiente</Text>
-            </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 }
 const style = StyleSheet.create({
@@ -92,10 +183,11 @@ const style = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 60,
     },
     Inputs: {
         // Con esto puedes cambiar la separacion de los inputs
-        gap: 50
+        gap: 10,
     },
     change: {
         right: '800'

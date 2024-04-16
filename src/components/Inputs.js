@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 
 export  const  Inputs = ({ control, setValue, name, placeholder = '', rules = {}, style }) => {
   return (
-    <View>
+    <View style = {[style]}>
       <Controller
         control={control}
 
@@ -23,6 +23,7 @@ export  const  Inputs = ({ control, setValue, name, placeholder = '', rules = {}
               <Text style={{ color: 'red', left: 12 }}>
                 {error.type === 'required' && 'Este campo es obligatorio'}
                 {error.type === 'pattern' && 'Correo no valido'}
+                {error.type === 'validate' && 'Ingrese un numero valido'}
               </Text>
 
             )}
@@ -44,5 +45,6 @@ const styles = StyleSheet.create({
     paddingStart: 15,
     justifyContent: 'center',
     elevation: 10,
+
   },
 })
