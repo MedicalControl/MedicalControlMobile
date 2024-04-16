@@ -30,149 +30,151 @@ export const Register = () => {
         })
     }
     return (
-        <ScrollView contentContainerStyle={style.container}>
-            <View style={style.Inputs}>
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="nombre"//campo
-                    placeholder="Nombre"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="apellido"//campo
-                    placeholder="Apellido"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="cedula"//campo
-                    placeholder="Cedula"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="telefono"//campo
-                    placeholder="Telefono"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="Municipio"//campo
-                    placeholder="municipio"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="direccion"//campo
-                    placeholder="Direccion"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="direccion"//campo
-                    placeholder="Direccion"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-                <Inputs
-                    control={control}
-                    setValue={setValue}
-                    name="direccion"//campo
-                    placeholder="Direccion"
-                    rules={{
-                        required: 'Por favor rellenar los datos',
-                        maxLength: {
-                            value: 10,
-                        }
-                    }}
-                    style={{
-                        right: 70,
-                        width: SCREEN_WIDTH * 0.5,
-                        paddingVertical: 10
-                    }}
-                />
-            </View>
-            <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
-                <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' }} >Siguiente</Text>
-            </TouchableOpacity>
-        </ScrollView>
+        <View style={style.container}>
+            <ScrollView>
+                <View style={style.Inputs}>
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="nombre"//campo
+                        placeholder="Nombre"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="apellido"//campo
+                        placeholder="Apellido"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="cedula"//campo
+                        placeholder="Cedula"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="telefono"//campo
+                        placeholder="Telefono"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="Municipio"//campo
+                        placeholder="municipio"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="direccion"//campo
+                        placeholder="Direccion"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="direccion"//campo
+                        placeholder="Direccion"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="direccion"//campo
+                        placeholder="Direccion"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                </View>
+                <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
+                    <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' }} >Siguiente</Text>
+                </TouchableOpacity>
+            </ScrollView>
+        </View>
     )
 }
 const style = StyleSheet.create({
