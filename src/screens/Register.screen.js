@@ -34,8 +34,8 @@ export const Register = () => {
             <View style={{ borderBottomWidth: 2 }}>
                 <Text>Hola Melanie</Text>
             </View>
-            <ScrollView>
-                <View style={style.Inputs}>
+            <ScrollView style={{flex: 2, width: "100%"}}>
+                <View style={[style.container,{gap: 100} ]}>
                     <Inputs
                         control={control}
                         setValue={setValue}
@@ -190,7 +190,7 @@ const style = StyleSheet.create({
     },
     Inputs: {
         // Con esto puedes cambiar la separacion de los inputs
-        gap: 10,
+        gap: 100,
     },
     change: {
         right: '800'
