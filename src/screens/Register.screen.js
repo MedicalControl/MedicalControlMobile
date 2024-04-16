@@ -30,8 +30,8 @@ export const Register = () => {
         })
     }
     return (
-        <View style={style.container}>
-            <ScrollView>
+        <ScrollView>
+            <View style={style.container}>
                 <View style={style.Inputs}>
                     <Inputs
                         control={control}
@@ -173,8 +173,8 @@ export const Register = () => {
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
                     <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' }} >Siguiente</Text>
                 </TouchableOpacity>
-            </ScrollView>
-        </View>
+            </View>
+        </ScrollView>
     )
 }
 const style = StyleSheet.create({
