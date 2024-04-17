@@ -14,7 +14,7 @@ export function MyStack() {
                 component={Login}
                 options={{
                     headerShown: false
-                }}
+                }}   
             />
             <HomeStackNa.Screen
                 name='Register'
