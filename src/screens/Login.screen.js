@@ -12,7 +12,8 @@ export const Login = () => {
     //objetos
     const { control, handleSubmit, setValue } = useForm();
     const Navigation = useNavigation();
-    useEffect(() => {
+    /*useEffect(() => {
+
         AsyncStorage.getItem('Token')
             .then((value) => {
                 if (value) {
@@ -20,8 +21,9 @@ export const Login = () => {
                 }
             })
             .catch((err) => console.error(err))
-    });
+    });*/
     const Onsubmit = async (data) => {
+        console.log(data);
         const ApiUri = await Constant.expoConfig.extra.ApiUri;
         const requestOptions = {
             method: 'POST',
