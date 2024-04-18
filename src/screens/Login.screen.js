@@ -23,7 +23,7 @@ export const Login = () => {
             .catch((err) => console.error(err))
     });*/
     const Onsubmit = async (data) => {
-        console.log(data);
+        /*console.log(data);
         const ApiUri = await Constant.expoConfig.extra.ApiUri;
         const requestOptions = {
             method: 'POST',
@@ -43,10 +43,11 @@ export const Login = () => {
             .then(async (response) => {
                 await AsyncStorage.setItem("Token", response.token, () => {
                     console.log('Token was saved successfully')
-                    Navigation.navigate('Home');
                 })
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error:', error));*/
+
+        Navigation.navigate('Home');
     }
     return (
         <View style={styles.Container}>
