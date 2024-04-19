@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, StatusBar } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form'
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import RNPickerSelect from 'react-native-picker-select';
 
 //Componentes
 import { Inputs } from "../components/index";
@@ -29,13 +30,17 @@ export const Register = () => {
             console.log(`Se ha guardado el token`)
         })
     }
+
+    //Municipios
+    const selectedItem = {
+        title: 'Selected item title',
+        description: 'Secondary long descriptive text ...',
+    };
+
     return (
         <View style={style.container}>
-            <View style={{ borderBottomWidth: 2 }}>
-                <Text>Hola Melanie</Text>
-            </View>
-            <ScrollView style={{flex: 2, width: "100%"}}>
-                <View style={[style.container,{gap: 100} ]}>
+            <ScrollView style={{ flex: 2, width: "100%" }}>
+                <View style={[style.container, { gap: 50, paddingRight: 50 }]}>
                     <Inputs
                         control={control}
                         setValue={setValue}
@@ -102,13 +107,36 @@ export const Register = () => {
                             right: 70,
                             width: SCREEN_WIDTH * 0.5,
                             paddingVertical: 10
+                        }} />
+                      
+                    <RNPickerSelect
+                        style={{
+                            inputAndroid: {
+                                backgroundColor: '#D8D9ED',
+                            },
                         }}
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'Masaya', value: 'masaya' },
+                            { label: 'Leon', value: 'leon' },
+                            { label: 'Granada', value: 'granada' },
+                            { label: 'Esteli', value: 'esteli' },
+                            { label: 'Managua', value: 'managua' },
+                            { label: 'Diriamba', value: 'diriamba' },
+                            { label: 'Carazo', value: 'carazo' },
+                            { label: 'Matagalpa', value: 'matagalpa' },
+                            { label: 'Jinotega', value: 'jinotega' },
+                            { label: 'Rivas', value: 'rivas' },
+                            { label: 'Ticuantepe', value: 'ticuantepe' },
+                            { label: 'Tipitapa', value: 'tipitapa' },
+                            {label : 'Ciudad Sandino', value: 'ciudad sandino'}
+                        ]}
                     />
                     <Inputs
                         control={control}
                         setValue={setValue}
-                        name="Municipio"//campo
-                        placeholder="municipio"
+                        name="numero_inss"//campo
+                        placeholder="Numero del INSS"
                         rules={{
                             required: 'Por favor rellenar los datos',
                             maxLength: {
@@ -121,56 +149,19 @@ export const Register = () => {
                             paddingVertical: 10
                         }}
                     />
-                    <Inputs
-                        control={control}
-                        setValue={setValue}
-                        name="direccion"//campo
-                        placeholder="Direccion"
-                        rules={{
-                            required: 'Por favor rellenar los datos',
-                            maxLength: {
-                                value: 10,
-                            }
-                        }}
+                    <RNPickerSelect
                         style={{
-                            right: 70,
-                            width: SCREEN_WIDTH * 0.5,
-                            paddingVertical: 10
+                            inputAndroid: {
+                                backgroundColor: '#D8D9ED',
+                            },
                         }}
-                    />
-                    <Inputs
-                        control={control}
-                        setValue={setValue}
-                        name="direccion"//campo
-                        placeholder="Direccion"
-                        rules={{
-                            required: 'Por favor rellenar los datos',
-                            maxLength: {
-                                value: 10,
-                            }
-                        }}
-                        style={{
-                            right: 70,
-                            width: SCREEN_WIDTH * 0.5,
-                            paddingVertical: 10
-                        }}
-                    />
-                    <Inputs
-                        control={control}
-                        setValue={setValue}
-                        name="direccion"//campo
-                        placeholder="Direccion"
-                        rules={{
-                            required: 'Por favor rellenar los datos',
-                            maxLength: {
-                                value: 10,
-                            }
-                        }}
-                        style={{
-                            right: 70,
-                            width: SCREEN_WIDTH * 0.5,
-                            paddingVertical: 10
-                        }}
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'Estudiante', value: 'estudiante' },
+                            {label : 'Ingeniero' , value : 'ingeniero'},
+                            {label : 'Medico', value : 'medico'},
+                            {label : 'Contador' , value : 'contador'}
+                        ]}
                     />
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
@@ -186,7 +177,8 @@ const style = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingTop: 60,
+        paddingTop: 8,
+
     },
     Inputs: {
         // Con esto puedes cambiar la separacion de los inputs

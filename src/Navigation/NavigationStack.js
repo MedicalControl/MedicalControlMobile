@@ -20,7 +20,7 @@ export function MyStack() {
                 name='Register'
                 component={Register}
                 options={{
-                    headerShown: false
+                    
                 }}
             />
             <HomeStackNa.Screen
