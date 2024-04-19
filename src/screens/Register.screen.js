@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
+import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 
 //Componentes
 import { Inputs } from "../components/index";
@@ -108,14 +109,16 @@ export const Register = () => {
                             width: SCREEN_WIDTH * 0.5,
                             paddingVertical: 10
                         }} />
-                      
+
                     <RNPickerSelect
+                   
                         style={{
                             inputAndroid: {
                                 backgroundColor: '#D8D9ED',
                             },
                         }}
                         onValueChange={(value) => console.log(value)}
+                        placeholder= 'Municipio'
                         items={[
                             { label: 'Masaya', value: 'masaya' },
                             { label: 'Leon', value: 'leon' },
@@ -129,7 +132,7 @@ export const Register = () => {
                             { label: 'Rivas', value: 'rivas' },
                             { label: 'Ticuantepe', value: 'ticuantepe' },
                             { label: 'Tipitapa', value: 'tipitapa' },
-                            {label : 'Ciudad Sandino', value: 'ciudad sandino'}
+                            { label: 'Ciudad Sandino', value: 'ciudad sandino' }
                         ]}
                     />
                     <Inputs
@@ -158,10 +161,11 @@ export const Register = () => {
                         onValueChange={(value) => console.log(value)}
                         items={[
                             { label: 'Estudiante', value: 'estudiante' },
-                            {label : 'Ingeniero' , value : 'ingeniero'},
-                            {label : 'Medico', value : 'medico'},
-                            {label : 'Contador' , value : 'contador'}
+                            { label: 'Ingeniero', value: 'ingeniero' },
+                            { label: 'Medico', value: 'medico' },
+                            { label: 'Contador', value: 'contador' }
                         ]}
+                        placeholder='Municipio'
                     />
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
