@@ -1,18 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form'
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
-<<<<<<< HEAD
-import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
-import DateTimePicker from 'react-native-ui-datepicker'
-import dayjs from "dayjs";
-=======
 import DatePicker from "react-native-date-picker";
 
->>>>>>> 8316c5777862cb2ec7bd707ff7a5ab9f47cbd940
 //Componentes
 import { Inputs } from "../components/index";
 //constants
@@ -21,7 +15,6 @@ import { Button } from "react-native";
 
 
 export const Register = () => {
-    const [date, setDate] = useState(dayjs());
     const back = useNavigation();
     const { control, handleSubmit, setValue } = useForm();
     useEffect(() => {
@@ -48,11 +41,6 @@ export const Register = () => {
     return (
         <View style={style.container}>
             <ScrollView style={{ flex: 2, width: "100%" }}>
-                <DateTimePicker
-                    mode="single"
-                    date={date}
-                    onChange={(params) => setDate(params.date)}
-                />
                 <View style={[style.container, { gap: 50, paddingRight: 50 }]}>
                     <Inputs
                         control={control}
@@ -122,20 +110,12 @@ export const Register = () => {
                             paddingVertical: 10
                         }} />
                     <RNPickerSelect
-<<<<<<< HEAD
-
-=======
->>>>>>> 8316c5777862cb2ec7bd707ff7a5ab9f47cbd940
                         style={{
                             inputAndroid: {
                                 backgroundColor: '#D8D9ED',
                             },
                         }}
                         onValueChange={(value) => console.log(value)}
-<<<<<<< HEAD
-                        placeholder='Municipio'
-=======
->>>>>>> 8316c5777862cb2ec7bd707ff7a5ab9f47cbd940
                         items={[
                             { label: 'Masaya', value: 1 },
                             { label: 'Leon', value: 2 },
