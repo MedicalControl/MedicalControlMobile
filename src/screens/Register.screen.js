@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form'
@@ -6,13 +6,15 @@ import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
-
+import DateTimePicker from 'react-native-ui-datepicker'
+import dayjs from "dayjs";
 //Componentes
 import { Inputs } from "../components/index";
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
 export const Register = () => {
+    const [date, setDate] = useState(dayjs());
     const back = useNavigation();
     const { control, handleSubmit, setValue } = useForm();
     useEffect(() => {
@@ -41,6 +43,11 @@ export const Register = () => {
     return (
         <View style={style.container}>
             <ScrollView style={{ flex: 2, width: "100%" }}>
+                <DateTimePicker
+                    mode="single"
+                    date={date}
+                    onChange={(params) => setDate(params.date)}
+                />
                 <View style={[style.container, { gap: 50, paddingRight: 50 }]}>
                     <Inputs
                         control={control}
@@ -111,14 +118,14 @@ export const Register = () => {
                         }} />
 
                     <RNPickerSelect
-                   
+
                         style={{
                             inputAndroid: {
                                 backgroundColor: '#D8D9ED',
                             },
                         }}
                         onValueChange={(value) => console.log(value)}
-                        placeholder= 'Municipio'
+                        placeholder='Municipio'
                         items={[
                             { label: 'Masaya', value: 'masaya' },
                             { label: 'Leon', value: 'leon' },
