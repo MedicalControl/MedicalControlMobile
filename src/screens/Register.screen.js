@@ -1,20 +1,19 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from 'react-hook-form'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
-import DatePicker from "react-native-date-picker";
+import DatePicker from 'react-native-date-picker'
 
 //Componentes
 import { Inputs } from "../components/index";
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
-import { Button } from "react-native";
-
 
 export const Register = () => {
+
     const back = useNavigation();
     const { control, handleSubmit, setValue } = useForm();
     useEffect(() => {
@@ -33,10 +32,10 @@ export const Register = () => {
             console.log(`Se ha guardado el token`)
         })
     }
+    //DateTime
+    const [open, setOpen] = useState(false);
+    const [date, setDate] = useState(new Date());
 
-    //creando calendario
-    const [date, setDate] = useState(new Date())
-    const [open, setOpen] = useState(false)
 
     return (
         <View style={style.container}>
@@ -112,8 +111,16 @@ export const Register = () => {
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
-                                backgroundColor: '#D8D9ED',
+                                backgroundColor: "#D8D9ED",
+                                left: 35,
+                                width: SCREEN_WIDTH * 0.7,
+                                elevation: 10
                             },
+                        }}
+                        placeholder={{
+                            label: 'Municipios',
+                            value: null,
+                            color: 'gray'
                         }}
                         onValueChange={(value) => console.log(value)}
                         items={[
@@ -152,24 +159,125 @@ export const Register = () => {
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
-                                backgroundColor: '#D8D9ED',
-                            },
+                                backgroundColor: "#D8D9ED",
+                                left: 35,
+                                width: SCREEN_WIDTH * 0.7,
+
+                            }
+                        }}
+                        placeholder={{
+                            label: 'Profesion',
+                            value: null,
+                            color: 'gray'
                         }}
                         onValueChange={(value) => console.log(value)}
                         items={[
-                            { label: 'Estudiante', value: 123 },
-                            { label: 'Ingeniero', value: 456 },
-                            { label: 'Medico', value: 789 },
-                            { label: 'Contador', value: 498 }
+                            { label: 'Medico', value: 123 },
+                            { label: 'Ingeniero', value: 245 },
+                            { label: 'Contador', value: 315 },
                         ]}
                     />
-                    <Button title="Open" onPress={() => setOpen(true)} />
+                    <Button title="Fecha de Nacimiento" onPress={() => setOpen(true)} />
                     <DatePicker
-                        mode="date"
+                        modal
+                        open={open}
+                        date={date}
+                        onConfirm={(date) => {
+                            setOpen(false)
+                            setDate(date)
+                        }}
+                        onCancel={() => {
+                            setOpen(false)
+                        }}
+
                     />
+                    <RNPickerSelect
+                        style={{
+                            inputAndroid: {
+                                backgroundColor: "#D8D9ED",
+                                left: 35,
+                                width: SCREEN_WIDTH * 0.7,
+
+                            }
+                        }}
+                        placeholder={{
+                            label: 'Lugar de Nacimiento',
+                            value: null,
+                            color: 'gray'
+                        }}
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'Hospital Bautista', value: 23 },
+                            { label: 'Hospital Lenin Fonseca', value: 45 },
+                            { label: 'Hospital Bertha Calderon', value: 15 },
+                            { label: 'Hospital Militar', value: 31 },
+                            { label: 'Hospital Centro de Salud', value: 3159 },
+                        ]}
+                    />
+                    <RNPickerSelect
+                        style={{
+                            inputAndroid: {
+                                backgroundColor: "#D8D9ED",
+                                left: 35,
+                                width: SCREEN_WIDTH * 0.7,
+
+                            }
+                        }}
+                        placeholder={{
+                            label: 'Sexo',
+                            value: null,
+                            color: 'gray'
+                        }}
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'F', value: 1239 },
+                            { label: 'M', value: 2456 }
+                        ]}
+                    />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="numero_telefono"//campo
+                        placeholder="Numero de Telefono"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 10,
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
+                    <RNPickerSelect
+                        style={{
+                            inputAndroid: {
+                                backgroundColor: "#D8D9ED",
+                                left: 35,
+                                width: SCREEN_WIDTH * 0.7,
+                                paddingTop : 10
+
+                            }
+                        }}
+                        placeholder={{
+                            label: 'Tipo de Sangre',
+                            value: null,
+                            color: 'gray'
+                        }}
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'A', value: 129 },
+                            { label: 'B', value: 256 },
+                            { label: 'AB', value: 4156 },
+                            { label: 'O', value: 246 }
+                        ]}
+                    />
+
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
-                    <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' }} >Siguiente</Text>
+                    <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' , backgroundColor : '#FFFCF5' , width : '50%' , borderRadius : 50 , padding : 10, left : 100, marginTop : 50}} >Siguiente</Text>
                 </TouchableOpacity>
             </ScrollView>
         </View>
@@ -182,7 +290,6 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 8,
-
     },
     Inputs: {
         // Con esto puedes cambiar la separacion de los inputs
@@ -190,6 +297,8 @@ const style = StyleSheet.create({
     },
     change: {
         right: '800'
-    }
+    },
+    
 })
+
   
