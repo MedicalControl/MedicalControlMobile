@@ -188,3 +188,4 @@ const style = StyleSheet.create({
         right: '800'
     }
 })
+  
