@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
-import DatePicker from 'react-native-date-picker'
 
 //Componentes
 import { Inputs } from "../components/index";
@@ -32,11 +31,6 @@ export const Register = () => {
             console.log(`Se ha guardado el token`)
         })
     }
-    //DateTime
-    const [open, setOpen] = useState(false);
-    const [date, setDate] = useState(new Date());
-
-
     return (
         <View style={style.container}>
             <ScrollView style={{ flex: 2, width: "100%" }}>
@@ -83,8 +77,9 @@ export const Register = () => {
                         rules={{
                             required: 'Por favor rellenar los datos',
                             maxLength: {
-                                value: 10,
-                            }
+                                value: 8,
+
+                            },
                         }}
                         style={{
                             right: 70,
@@ -108,13 +103,32 @@ export const Register = () => {
                             width: SCREEN_WIDTH * 0.5,
                             paddingVertical: 10
                         }} />
+                    <Inputs
+                        control={control}
+                        setValue={setValue}
+                        name="numero_inss"//campo
+                        placeholder="Numero del INSS"
+                        rules={{
+                            required: 'Por favor rellenar los datos',
+                            maxLength: {
+                                value: 8,
+                                message: 'El teléfono debe tener exactamente 8 números'
+                            }
+                        }}
+                        style={{
+                            right: 70,
+                            width: SCREEN_WIDTH * 0.5,
+                            paddingVertical: 10
+                        }}
+                    />
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
                                 backgroundColor: "#D8D9ED",
                                 left: 35,
                                 width: SCREEN_WIDTH * 0.7,
-                                elevation: 10
+                                elevation: 10,
+
                             },
                         }}
                         placeholder={{
@@ -139,30 +153,13 @@ export const Register = () => {
                             { label: 'Ciudad Sandino', value: 13 }
                         ]}
                     />
-                    <Inputs
-                        control={control}
-                        setValue={setValue}
-                        name="numero_inss"//campo
-                        placeholder="Numero del INSS"
-                        rules={{
-                            required: 'Por favor rellenar los datos',
-                            maxLength: {
-                                value: 10,
-                            }
-                        }}
-                        style={{
-                            right: 70,
-                            width: SCREEN_WIDTH * 0.5,
-                            paddingVertical: 10
-                        }}
-                    />
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
                                 backgroundColor: "#D8D9ED",
                                 left: 35,
                                 width: SCREEN_WIDTH * 0.7,
-
+                                elevation: 10
                             }
                         }}
                         placeholder={{
@@ -177,27 +174,13 @@ export const Register = () => {
                             { label: 'Contador', value: 315 },
                         ]}
                     />
-                    <Button title="Fecha de Nacimiento" onPress={() => setOpen(true)} />
-                    <DatePicker
-                        modal
-                        open={open}
-                        date={date}
-                        onConfirm={(date) => {
-                            setOpen(false)
-                            setDate(date)
-                        }}
-                        onCancel={() => {
-                            setOpen(false)
-                        }}
-
-                    />
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
                                 backgroundColor: "#D8D9ED",
                                 left: 35,
                                 width: SCREEN_WIDTH * 0.7,
-
+                                elevation: 10
                             }
                         }}
                         placeholder={{
@@ -220,7 +203,7 @@ export const Register = () => {
                                 backgroundColor: "#D8D9ED",
                                 left: 35,
                                 width: SCREEN_WIDTH * 0.7,
-
+                                elevation: 10
                             }
                         }}
                         placeholder={{
@@ -234,31 +217,13 @@ export const Register = () => {
                             { label: 'M', value: 2456 }
                         ]}
                     />
-                    <Inputs
-                        control={control}
-                        setValue={setValue}
-                        name="numero_telefono"//campo
-                        placeholder="Numero de Telefono"
-                        rules={{
-                            required: 'Por favor rellenar los datos',
-                            maxLength: {
-                                value: 10,
-                            }
-                        }}
-                        style={{
-                            right: 70,
-                            width: SCREEN_WIDTH * 0.5,
-                            paddingVertical: 10
-                        }}
-                    />
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
                                 backgroundColor: "#D8D9ED",
                                 left: 35,
                                 width: SCREEN_WIDTH * 0.7,
-                                paddingTop : 10
-
+                                elevation: 10
                             }
                         }}
                         placeholder={{
@@ -274,10 +239,9 @@ export const Register = () => {
                             { label: 'O', value: 246 }
                         ]}
                     />
-
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
-                    <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold' , backgroundColor : '#FFFCF5' , width : '50%' , borderRadius : 50 , padding : 10, left : 100, marginTop : 50}} >Siguiente</Text>
+                    <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold', backgroundColor: '#FFFCF5', width: '50%', borderRadius: 50, padding: 10, left: 100, marginTop: 50 }} >Siguiente</Text>
                 </TouchableOpacity>
             </ScrollView>
         </View>
@@ -297,8 +261,6 @@ const style = StyleSheet.create({
     },
     change: {
         right: '800'
-    },
-    
+    }
 })
 
-  
