@@ -220,24 +220,7 @@ export const Register = () => {
                             { label: 'O', value: 246 }
                         ]}
                     />
-                    <Select_Datas
-                        control={control}
-                        setValue={setValue}
-                        placeholder={{
-                            label: 'Seleccione una opción',
-                            value: null,
-                            color: 'blue'
-                        }}
-                        onValueChange={(value) => console.log(value)}
-                        items={[
-                            { label: 'Opción 1', value: 1 },
-                            { label: 'Opción 2', value: 2 },
-                            { label: 'Opción 3', value: 3 }
-                        ]}
-                        rules={{
-                            required: 'Por favor, seleccione una opción'
-                        }}
-                    />
+
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
                     <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold', backgroundColor: '#FFFCF5', width: '50%', borderRadius: 50, padding: 10, left: 100, marginTop: 50 }} >Siguiente</Text>
