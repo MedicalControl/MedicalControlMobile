@@ -6,9 +6,10 @@ import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
 
+
 //Componentes
 import { Inputs } from "../components/index";
-import { Select_Datas } from "../components/index";
+import { Select_Data } from "../components/index";
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
@@ -220,7 +221,7 @@ export const Register = () => {
                             { label: 'O', value: 246 }
                         ]}
                     />
-                    <Select_Datas
+                    <Select_Data
                         control={control}
                         setValue={setValue}
                         placeholder={{
@@ -237,6 +238,14 @@ export const Register = () => {
                         rules={{
                             required: 'Por favor, seleccione una opción'
                         }}
+                    />
+                    <RNPickerSelect
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'Football', value: 'football' },
+                            { label: 'Baseball', value: 'baseball' },
+                            { label: 'Hockey', value: 'hockey' },
+                        ]}
                     />
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
