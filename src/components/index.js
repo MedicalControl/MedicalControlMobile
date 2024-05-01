@@ -1,5 +1,3 @@
-export {Button_find} from './ButtonAc'
-export {Button_CreateC} from './ButtonCreatC'
+export {Button} from './Button'
 export {Inputs} from './Inputs'
-export {Button_Setting} from './Button_2'
 export {Select_Data} from './Select_Data'
