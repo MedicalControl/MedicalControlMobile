@@ -6,9 +6,10 @@ import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
 
+
 //Componentes
 import { Inputs } from "../components/index";
-import { Select_Datas } from "../components/index";
+import { Select_Data } from "../components/index";
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
@@ -218,6 +219,33 @@ export const Register = () => {
                             { label: 'B', value: 256 },
                             { label: 'AB', value: 4156 },
                             { label: 'O', value: 246 }
+                        ]}
+                    />
+
+                    <Select_Data
+                        control={control}
+                        setValue={setValue}
+                        placeholder={{
+                            label: 'Seleccione una opción',
+                            value: null,
+                            color: 'blue'
+                        }}
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'Opción 1', value: 1 },
+                            { label: 'Opción 2', value: 2 },
+                            { label: 'Opción 3', value: 3 }
+                        ]}
+                        rules={{
+                            required: 'Por favor, seleccione una opción'
+                        }}
+                    />
+                    <RNPickerSelect
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'Football', value: 'football' },
+                            { label: 'Baseball', value: 'baseball' },
+                            { label: 'Hockey', value: 'hockey' },
                         ]}
                     />
 
