@@ -2,21 +2,21 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-export function Button_Setting() {
+export function Button() {
     const Navigation = useNavigation();
     return (
         <TouchableOpacity
-            onPress={() => Navigation.navigate('Setting')}
-        >
-            <Text style={styles.fortogPassword}>¿Olvidaste tu contraseña? </Text>
+            onPress={() => Navigation.navigate('Register')}>
+            <Text style={styles.Sing_Up}>Registare</Text>
         </TouchableOpacity>
     )
 }
 const styles = StyleSheet.create({
-    fortogPassword: {
+    Sing_Up: {
         fontSize: 15,
-        color: "white",
-        marginTop: 45,
-        textDecorationLine: 'underline'
+        color: "#2AB9B7",
+        textDecorationLine: 'underline',
+        textDecorationColor: '#2AB9B7', 
+        left: 5
     }
 })
