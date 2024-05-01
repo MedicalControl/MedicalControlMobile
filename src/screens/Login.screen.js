@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
 import Constant from 'expo-constants'
 //Nuevo componente
-import { Button_CreateC, Inputs } from "../components/index";
+import { Button_CreateC, Button_find, Inputs } from "../components/index";
 
 export const Login = () => {
     //objetos
@@ -89,6 +89,7 @@ export const Login = () => {
                     }}
                 />
             </View>
+
             <TouchableOpacity onPress={handleSubmit(Onsubmit)}
                 style={styles.Button} >
                 <Text style={{ fontSize: 25, textAlign: 'center', color: '#fff', fontWeight: 'bold' }} >Iniciar Sesion</Text>

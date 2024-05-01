@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from 'react-hook-form'
@@ -8,6 +8,7 @@ import RNPickerSelect from 'react-native-picker-select';
 
 //Componentes
 import { Inputs } from "../components/index";
+import { Select_Datas } from "../components/index";
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
@@ -78,7 +79,6 @@ export const Register = () => {
                             required: 'Por favor rellenar los datos',
                             maxLength: {
                                 value: 8,
-
                             },
                         }}
                         style={{
@@ -128,7 +128,6 @@ export const Register = () => {
                                 left: 35,
                                 width: SCREEN_WIDTH * 0.7,
                                 elevation: 10,
-
                             },
                         }}
                         placeholder={{
@@ -153,27 +152,7 @@ export const Register = () => {
                             { label: 'Ciudad Sandino', value: 13 }
                         ]}
                     />
-                    <RNPickerSelect
-                        style={{
-                            inputAndroid: {
-                                backgroundColor: "#D8D9ED",
-                                left: 35,
-                                width: SCREEN_WIDTH * 0.7,
-                                elevation: 10
-                            }
-                        }}
-                        placeholder={{
-                            label: 'Profesion',
-                            value: null,
-                            color: 'gray'
-                        }}
-                        onValueChange={(value) => console.log(value)}
-                        items={[
-                            { label: 'Medico', value: 123 },
-                            { label: 'Ingeniero', value: 245 },
-                            { label: 'Contador', value: 315 },
-                        ]}
-                    />
+
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
@@ -197,6 +176,7 @@ export const Register = () => {
                             { label: 'Hospital Centro de Salud', value: 3159 },
                         ]}
                     />
+
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
@@ -217,6 +197,7 @@ export const Register = () => {
                             { label: 'M', value: 2456 }
                         ]}
                     />
+
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
@@ -238,6 +219,24 @@ export const Register = () => {
                             { label: 'AB', value: 4156 },
                             { label: 'O', value: 246 }
                         ]}
+                    />
+                    <Select_Datas
+                        control={control}
+                        setValue={setValue}
+                        placeholder={{
+                            label: 'Seleccione una opción',
+                            value: null,
+                            color: 'blue'
+                        }}
+                        onValueChange={(value) => console.log(value)}
+                        items={[
+                            { label: 'Opción 1', value: 1 },
+                            { label: 'Opción 2', value: 2 },
+                            { label: 'Opción 3', value: 3 }
+                        ]}
+                        rules={{
+                            required: 'Por favor, seleccione una opción'
+                        }}
                     />
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
