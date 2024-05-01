@@ -8,8 +8,7 @@ import RNPickerSelect from 'react-native-picker-select';
 
 
 //Componentes
-import { Inputs } from "../components/index";
-import { Select_Data } from "../components/index";
+import { Inputs, Select_Data } from "../components/index";
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
