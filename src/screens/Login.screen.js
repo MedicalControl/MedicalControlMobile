@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigation } from "@react-navigation/native";
 import Constant from 'expo-constants'
 //Nuevo componente
-import { Button_CreateC, Button_find, Inputs } from "../components/index";
+import { Button, Inputs } from "../components/index";
 
 export const Login = () => {
     //objetos
@@ -96,7 +96,7 @@ export const Login = () => {
             </TouchableOpacity>
             <View style={styles.textAccount}>
                 <Text>No tienes ningúna cuenta?</Text>
-                <Button_CreateC />
+               <Button destination = 'Register'/>
             </View>
             <StatusBar style="auto" />
         </View>
