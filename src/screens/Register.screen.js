@@ -9,7 +9,7 @@ import RNPickerSelect from 'react-native-picker-select';
 
 //Componentes
 import { Inputs } from "../components/index";
-import { Select_Data } from "../components/index";
+
 //constants
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
@@ -225,6 +225,7 @@ export const Register = () => {
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
                     <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold', backgroundColor: '#FFFCF5', width: '50%', borderRadius: 50, padding: 10, left: 100, marginTop: 50 }} >Siguiente</Text>
                 </TouchableOpacity>
+               
             </ScrollView>
         </View>
     )
