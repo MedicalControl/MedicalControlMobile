@@ -104,7 +104,7 @@ export const Login = () => {
             <StatusBar style="auto" />
         </View>
     )
-}
+}  
 const styles = StyleSheet.create({
     Container: {
         flex: 1,
