@@ -11,7 +11,7 @@ export const Button = ({ destination }) => {
 }
 const styles = StyleSheet.create({
     Sing_Up: {
-        fontSize: 15,
+        fontSize: 15,  
         color: "#2AB9B7",
         textDecorationLine: 'underline',
         textDecorationColor: '#2AB9B7',
