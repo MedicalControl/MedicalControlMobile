@@ -4,8 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const Navigation = useNavigation();
 export const Button = ({ destination }) => {
-    <TouchableOpacity
-        onPress={() => Navigation.navigate(destination)}>
+    <TouchableOpacity>
         <Text style={styles.Sing_Up}>Registare</Text>
     </TouchableOpacity>
 }
