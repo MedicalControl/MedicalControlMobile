@@ -14,15 +14,10 @@ import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../constants/Screen";
 
 export const Register = () => {
 
-    const back = useNavigation();
     const { control, handleSubmit, setValue } = useForm();
     useEffect(() => {
         AsyncStorage.getItem('Token')
-            .then((value) => {
-                if (value) {
-                    back();
-                }
-            })
+            .then((value) => {            })
             .catch((err) => console.error(err))
     });
     const Onsubmit = (data) => {
