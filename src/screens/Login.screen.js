@@ -97,11 +97,7 @@ export const Login = () => {
             </View>
             <View style={styles.textAccount}>
                 <Text>No tienes ningúna cuenta?</Text>
-<<<<<<< HEAD
-               <Button />
-=======
                 <Link destination="Register" text="Registrate" style={{color:"#2AB9B7"}}/>
->>>>>>> 4e33b49ca61699b47e2528c12a6ba53f4f74024a
             </View>
             <StatusBar style="auto" />
         </View>
@@ -128,9 +124,8 @@ const styles = StyleSheet.create({
     Button: {
         backgroundColor: "#2AB9B7",
         padding: 10,
-        width: "50%",
+        width: "80%",
         alignItems: 'center',
-        borderRadius: 50,
-        elevation: 80
+        borderRadius: 30,
     },
 })

@@ -1,10 +1,12 @@
 import React, { lazy, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Button } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Modal } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from 'react-hook-form'
 import { useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import RNPickerSelect from 'react-native-picker-select';
+import DatePicker from 'react-native-modern-datepicker';
+import { getFormatedDate } from "react-native-modern-datepicker";
 
 
 //Componentes
@@ -17,9 +19,10 @@ export const Register = () => {
     const { control, handleSubmit, setValue } = useForm();
     useEffect(() => {
         AsyncStorage.getItem('Token')
-            .then((value) => {            })
+            .then((value) => { })
             .catch((err) => console.error(err))
     });
+
     const Onsubmit = (data) => {
         console.log(data);
         //Api
@@ -27,6 +30,24 @@ export const Register = () => {
             console.log(`Se ha guardado el token`)
         })
     }
+    //Calendario
+
+
+    const [openStartDatePicker, setOpenStartDatePicker] = useState(false) //open and Close the modal
+    const today = new Date();
+    const startDate = getFormatedDate(today.setDate(today.getDate() + 1), 'DD/MM/YYYY');
+    const [selectedStartDate, setSelectedStartDate] = useState(""); //Date Variable
+    const [startedDate, setStartedDate] = useState('11/02/2000');
+
+    function handleChangeStartDate(propDate) {
+        setStartedDate(propDate)
+    }
+    const handleOnPressStarDate = () => {
+        setOpenStartDatePicker(!openStartDatePicker);
+    }
+
+
+
     return (
         <View style={style.container}>
             <ScrollView style={{ flex: 2, width: "100%" }}>
@@ -147,7 +168,6 @@ export const Register = () => {
                             { label: 'Ciudad Sandino', value: 13 }
                         ]}
                     />
-
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
@@ -171,7 +191,6 @@ export const Register = () => {
                             { label: 'Hospital Centro de Salud', value: 3159 },
                         ]}
                     />
-
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
@@ -192,7 +211,6 @@ export const Register = () => {
                             { label: 'M', value: 2456 }
                         ]}
                     />
-
                     <RNPickerSelect
                         style={{
                             inputAndroid: {
@@ -209,17 +227,58 @@ export const Register = () => {
                         }}
                         onValueChange={(value) => console.log(value)}
                         items={[
-                            { label: 'A', value: 129 },
-                            { label: 'B', value: 256 },
-                            { label: 'AB', value: 4156 },
-                            { label: 'O', value: 246 }
+                            { label: 'A+', value: 129 },
+                            { label: 'B+', value: 256 },
+                            { label: 'AB+', value: 416 },
+                            { label: 'O+', value: 246 },
+                            { label: 'O-', value: 300 },
+                            { label: 'AB-', value: 159 },
+                            { label: 'A-', value: 140 },
+                            { label: 'B-', value: 266 }
                         ]}
                     />
+                    <TouchableOpacity style={style.Input}
+                        placeholder="Nombre"
+                        onPress={handleOnPressStarDate}>
+
+                        <Text>{selectedStartDate}</Text>
+                    </TouchableOpacity>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={openStartDatePicker}
+                    >
+                        <View style={style.centeredView}>
+                            <View style={style.modalView}>
+
+                                <DatePicker
+                                    mode="calendar"
+                                    minimumDate={startDate}
+                                    selected={startedDate}
+                                    onDateChange={handleChangeStartDate}
+                                    onSelectedChange={date => setSelectedStartDate(date)}
+                                    options={{
+                                        backgroundColor: '#FFFFFF',
+                                        textHeaderColor: '#469ab6',
+                                        textDefaultColor: 'black',
+                                        selectedTextColor: '#FFF',
+                                        mainColor: '#2AB9B7',
+                                        textSecondaryColor: '#2AB9B7',
+                                        borderColor : 'rgba(122,146,165,0.1)'
+                                    }}
+                                />
+                                <TouchableOpacity onPress={handleOnPressStarDate}>
+                                    <Text>Close</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </Modal>
+
                 </View>
                 <TouchableOpacity onPress={handleSubmit(Onsubmit)}>
                     <Text style={{ fontSize: 25, textAlign: 'center', color: '#000', fontWeight: 'bold', backgroundColor: '#FFFCF5', width: '50%', borderRadius: 50, padding: 10, left: 100, marginTop: 50 }} >Siguiente</Text>
                 </TouchableOpacity>
-               
+
             </ScrollView>
         </View>
     )
@@ -238,6 +297,42 @@ const style = StyleSheet.create({
     },
     change: {
         right: '800'
-    }
+    },
+    //Calendario
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    modalView: {
+        margin: 10,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 30,
+        padding: 35,
+        width: '90%',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5
+    },
+    Input: {
+        backgroundColor: "#D8D9ED",
+        borderRadius: 20,
+        width: 300,
+        padding: 12,
+        height: 70,
+        paddingStart: 15,
+        justifyContent: 'center',
+        elevation: 10,
+
+    },
+
 })
 

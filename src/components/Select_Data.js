@@ -1,11 +1,31 @@
-import RNPickerSelect from 'react-native-picker-select';
+import React from 'react';
 import { Controller } from 'react-hook-form';
-import { View,  Text } from "react-native";
+import { View } from 'react-native';
+import RNPickerSelect from 'react-native-picker-select';
 
-export const Select_Data = ({ control, setValue, placeholder = '', rules = {}, items = [] }) => {
+export const RNPickerselect = ({ control, name, placeholder, items, rules = {} }) => {
     return (
-      <View>
-        
-      </View>
+
+        <Controller
+            control={control}
+            name={name}
+            rules={rules}
+            render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
+                <View >
+                    <RNPickerSelect
+                        onValueChange={onChange}
+                        onBlur={onBlur}
+                        value={value}
+                        placeholder={placeholder}
+                        items={items}
+                    />
+                    {error && (
+                        <Text style={{ color: 'red', left: 12 }}>
+                            {error.type === 'required' && 'Este campo es obligatorio'}
+                        </Text>
+                    )}
+                </View>
+            )}
+        />
     );
-  };
+};

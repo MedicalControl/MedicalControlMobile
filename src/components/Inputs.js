@@ -6,7 +6,6 @@ export  const  Inputs = ({ control, setValue, name, placeholder = '', rules = {}
     <View >
       <Controller
         control={control}
-
         render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
           <View>
             <TextInput
