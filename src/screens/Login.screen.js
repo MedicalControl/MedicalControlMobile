@@ -96,7 +96,7 @@ export const Login = () => {
             </TouchableOpacity>
             <View style={styles.textAccount}>
                 <Text>No tienes ningúna cuenta?</Text>
-               <Button destination = 'Register'/>
+               <Button />
             </View>
             <StatusBar style="auto" />
         </View>
