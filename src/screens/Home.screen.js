@@ -3,8 +3,32 @@ import { View, Text, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import * as Updates from 'expo-updates';
+import constans from 'expo-constants'
+export const Home = async () => {
+    const ApiUri = await constans.expoConfig.extra.ApiUri
 
-export const SettingScreens = () => {
+    await AsyncStorage.getItem('Token')
+        .then((token) => {
+            const Token = token
+            fetch(ApiUri, {
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: 'Bearer ' + token,
+                    'X-Custom-Header': 'header value'
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('The request was not successful: ' + response.status);
+                }
+                return response.json();
+            })
+                .then(async (response) => {
+                    console.log(response);
+                })
+                .catch(error => console.error('Error:', error));
+        })
+        .catch((err) => console.log(err));
+
     const Navigation = useNavigation();
     return (
         <View style={{

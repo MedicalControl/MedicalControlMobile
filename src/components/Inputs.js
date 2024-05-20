@@ -1,9 +1,9 @@
 import { TextInput, View, StyleSheet, Text } from "react-native";
 import { Controller } from 'react-hook-form';
 
-export default function Inputs({ control, setValue, name, placeholder = '', rules = {} }) {
+export  const  Inputs = ({ control, setValue, name, placeholder = '', rules = {} }) => {
   return (
-    <View>
+    <View >
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
@@ -13,18 +13,18 @@ export default function Inputs({ control, setValue, name, placeholder = '', rule
               onChangeText={(text) => {
                 setValue(name, text);
                 onChange(text);
-                
               }}
               value={value}
               style={styles.Input}
               placeholder={placeholder}
             />
             {error && (
-              <Text style={{ color: 'red' }}>
+              <Text style={{ color: 'red', left: 12 }}>
                 {error.type === 'required' && 'Este campo es obligatorio'}
-                {error.type === 'maxLength' && 'No ingrese más de 10 caracteres'}
                 {error.type === 'pattern' && 'Correo no valido'}
+                {error.type === 'validate' && 'Ingrese un numero valido'}
               </Text>
+
             )}
           </View>
         )}
@@ -38,10 +38,12 @@ const styles = StyleSheet.create({
   Input: {
     backgroundColor: "#D8D9ED",
     borderRadius: 20,
-    width: "100%",
+    width: 300,
     padding: 12,
-    height: 50,
-    marginTop: 40,
+    height: 70,
     paddingStart: 15,
+    justifyContent: 'center',
+    elevation: 10,
+
   },
 })

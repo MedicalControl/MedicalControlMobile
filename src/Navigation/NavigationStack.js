@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 //import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import React from "react";
 //Screens
-import { AccountScreen, CreateAccount, HomeStack, SettingScreens } from '../screens/screen'
+import { Login, Register, Home } from '../screens/index.js'
 const HomeStackNa = createNativeStackNavigator();
 export function MyStack() {
     return (
@@ -10,22 +10,22 @@ export function MyStack() {
             initialRouteName="HomeStack"
         >
             <HomeStackNa.Screen
-                name='HomeStack'
-                component={HomeStack}
+                name='Login'
+                component={Login}
                 options={{
                     headerShown: false
+                }}   
+            />
+            <HomeStackNa.Screen
+                name='Register'
+                component={Register}
+                options={{
+                    
                 }}
             />
             <HomeStackNa.Screen
-                name='Account'
-                component={AccountScreen}
-                options={{
-                    headerShown: false
-                }}
-            />
-            <HomeStackNa.Screen
-                name='Setting'
-                component={SettingScreens}
+                name='Home'
+                component={Home}
                 options={{
                     headerShown: false
                 }}
